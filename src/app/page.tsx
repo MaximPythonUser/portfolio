@@ -7,6 +7,8 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import { TimelineItem } from "@/components/timeline-item";
+import { Reveal } from "@/components/reveal";
 import {
   ArrowUpRight,
   Code2,
@@ -63,6 +65,15 @@ const projects = [
     year: "2024",
     image: "/images/project-2.jpeg",
   },
+  {
+    title: "Сайт-портфолио",
+    description:
+      "Персональный сайт-портфолио с тёмным нео-скеuomorphic дизайном. Разработан на Next.js 16 с использованием Tailwind CSS. Включает 3D-графику, эффект матового стекла, кастомные анимации и адаптивную вёрстку под мобильные устройства.",
+    tags: ["Next.js", "TypeScript", "Tailwind CSS", "React"],
+    year: "2025",
+    image: "/images/portfolio-preview.jpg",
+    link: "https://portfolio-wine-six-68.vercel.app",
+  },
 ];
 
 const services = [
@@ -101,6 +112,12 @@ export default function IndexPage() {
             </a>
             <a href="#skills" className="transition-colors hover:text-foreground">
               Навыки
+            </a>
+            <a
+              href="#goals"
+              className="transition-colors hover:text-foreground"
+            >
+              Цели
             </a>
             <a
               href="#projects"
@@ -188,7 +205,8 @@ export default function IndexPage() {
         <hr className="glow-divider my-8" />
 
         {/* About + services */}
-        <section id="about" className="scroll-mt-20 py-14">
+        <Reveal>
+          <section id="about" className="scroll-mt-20 py-14">
           <div className="mb-8 flex items-center gap-2">
             <User className="h-5 w-5" />
             <h2 className="text-2xl font-bold">Обо мне</h2>
@@ -244,12 +262,14 @@ export default function IndexPage() {
             </div>
           </div>
         </section>
+        </Reveal>
 
         <hr className="glow-divider my-8" />
 
         {/* Skills */}
-        <section id="skills" className="scroll-mt-20 py-14">
-          <div className="mb-8 flex items-center gap-2">
+        <Reveal>
+          <section id="skills" className="scroll-mt-20 py-14">
+            <div className="mb-8 flex items-center gap-2">
             <Code2 className="h-5 w-5" />
             <h2 className="text-2xl font-bold">Навыки</h2>
           </div>
@@ -269,6 +289,77 @@ export default function IndexPage() {
             </CardContent>
           </Card>
         </section>
+        </Reveal>
+
+        <hr className="glow-divider my-8" />
+
+        {/* Goals & Timeline */}
+        <Reveal>
+          <section id="goals" className="relative w-full py-24 sm:py-32">
+          <div className="mx-auto max-w-5xl px-4">
+            {/* Заголовок секции */}
+            <div className="mb-16 text-center">
+              <p className="mb-3 text-xs font-semibold uppercase tracking-[0.3em] text-primary">
+                Цели и достижения
+              </p>
+              <h2 className="text-4xl font-bold sm:text-5xl">
+                Путь и планы
+              </h2>
+            </div>
+
+            {/* Таймлайн */}
+            <div className="relative">
+              {/* Вертикальная центральная линия со свечением */}
+              <div
+                className="absolute left-4 top-0 bottom-0 w-px md:left-1/2 md:-translate-x-1/2"
+                style={{
+                  background: 'linear-gradient(to bottom, transparent, rgba(139, 92, 246, 0.5) 15%, rgba(139, 92, 246, 0.5) 85%, transparent)',
+                }}
+              />
+
+              {/* Карточки таймлайна */}
+              <div className="space-y-12">
+                {/* Карточка 1 */}
+                <TimelineItem
+                  year="2024"
+                  badge="Достижение"
+                  title="Первые шаги в Python"
+                  description="Начал изучать Python: синтаксис, ООП, работа с API. Быстро понял, что автоматизация и боты — это моё."
+                  side="left"
+                />
+
+                {/* Карточка 2 */}
+                <TimelineItem
+                  year="2024"
+                  badge="Достижение"
+                  title="Первые Telegram-боты"
+                  description="Освоил aiogram и базы данных. Собрал простых ботов: конвертеры, опросники, планировщики задач."
+                  side="right"
+                />
+
+                {/* Карточка 3 */}
+                <TimelineItem
+                  year="2025"
+                  badge="Достижение"
+                  title="Боты для реальных задач"
+                  description="Трекер тренировок с ролями и админ-панелью, бот записи в барбершоп со свободными окнами. Полный цикл: от схемы БД до деплоя."
+                  side="left"
+                />
+
+                {/* Карточка 4 — Цель на будущее */}
+                <TimelineItem
+                  year="2026"
+                  badge="Цель"
+                  title="Senior Python Developer"
+                  description="Углубить знания в архитектуре высоконагруженных систем и стать ведущим разработчиком в команде."
+                  side="right"
+                  isGoal={true}
+                />
+              </div>
+            </div>
+          </div>
+        </section>
+        </Reveal>
 
         <hr className="glow-divider my-8" />
 
@@ -280,19 +371,20 @@ export default function IndexPage() {
               <h2 className="text-2xl font-bold">Проекты</h2>
             </div>
             <span className="text-sm text-muted-foreground">
-              3 проекта · Telegram-боты, парсеры, бэкенд
+              4 проекта · Telegram-боты, парсеры, бэкенд, Next.js
             </span>
           </div>
-          <div className="group/projects grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {projects.map((p) => (
-              <Card
-                key={p.title}
-                className="glass-card flex flex-col"
-              >
-                <img
-                  src={p.image}
-                  alt={p.title}
-                  className="w-full h-48 object-cover rounded-xl mb-4"
+<div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+            {projects.map((p, index) => (
+              <Reveal key={p.title} delay={index * 100}>
+                <Card
+                  key={p.title}
+                  className="glass-card flex flex-col h-full"
+                >
+                  <img
+                    src={p.image}
+                    alt={p.title}
+                    className="w-full h-48 object-cover rounded-t-2xl mb-4"
                 />
                 <CardHeader>
                   <div className="mb-2 flex items-center justify-between">
@@ -311,13 +403,14 @@ export default function IndexPage() {
                     ))}
                   </div>
                   <Button asChild className="btn-3d w-full sm:w-auto">
-                    <a href="#" className="flex items-center justify-center gap-2">
+                    <a href={p.link || "#"} className="flex items-center justify-center gap-2">
                       <ArrowUpRight className="h-4 w-4" />
                       Смотреть
                     </a>
                   </Button>
                 </CardContent>
               </Card>
+              </Reveal>
             ))}
           </div>
         </section>
@@ -325,7 +418,8 @@ export default function IndexPage() {
         <hr className="glow-divider my-8" />
 
         {/* Contact */}
-        <section id="contact" className="scroll-mt-20 py-14">
+        <Reveal>
+          <section id="contact" className="scroll-mt-20 py-14">
           <div className="mb-8 flex items-center gap-2">
             <Send className="h-5 w-5" />
             <h2 className="text-2xl font-bold">Контакты</h2>
@@ -371,6 +465,7 @@ export default function IndexPage() {
             </CardContent>
           </Card>
         </section>
+        </Reveal>
       </main>
 
       {/* Footer */}
