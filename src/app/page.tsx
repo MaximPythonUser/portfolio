@@ -180,11 +180,11 @@ export default function IndexPage() {
             <img
               src="/hero-torus.png"
               alt=""
-              className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] md:w-[900px] md:h-[900px] object-contain pointer-events-none z-0 opacity-30 md:opacity-40"
+              className="absolute top-[35%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-[450px] h-[450px] md:w-[800px] md:h-[800px] object-contain pointer-events-none z-0 opacity-55 md:opacity-50"
               style={{
                 border: 'none',
                 outline: 'none',
-                filter: 'drop-shadow(0 0 60px rgba(167, 139, 250, 0.6)) drop-shadow(0 0 120px rgba(139, 92, 246, 0.4)) contrast(1.15) brightness(1.1)'
+                filter: 'brightness(1.4) contrast(1.2) drop-shadow(0 0 60px rgba(167, 139, 250, 0.7)) drop-shadow(0 0 120px rgba(139, 92, 246, 0.5))'
               }}
             />
             
@@ -200,11 +200,10 @@ export default function IndexPage() {
                 Открыт для заказов и стажировки
               </Badge>
               <h1 className="mb-6 text-3xl font-bold leading-tight sm:text-4xl md:text-5xl lg:text-6xl"
-                style={{ textShadow: '0 4px 20px rgba(0, 0, 0, 0.8), 0 0 40px rgba(0, 0, 0, 0.5)' }}>
+                style={{ textShadow: '0 4px 20px rgba(0, 0, 0, 0.9), 0 0 40px rgba(0, 0, 0, 0.6)' }}>
                 Привет! Я Максим — делаю сайты и веб-приложения
               </h1>
-              <p className="mb-8 text-sm text-muted-foreground sm:text-base md:text-lg"
-                style={{ textShadow: '0 2px 10px rgba(0, 0, 0, 0.9)' }}>
+              <p className="mb-8 text-sm text-muted-foreground sm:text-base md:text-lg [text-shadow:_0_2px_12px_rgba(0,0,0,0.95),_0_0_30px_rgba(0,0,0,0.7)]">
                 Python-разработчик (1+ год): Telegram-боты, парсеры, бэкенд API.
                 PostgreSQL, Docker, FastAPI, aiogram. От архитектуры до деплоя на VPS.
               </p>
@@ -222,7 +221,7 @@ export default function IndexPage() {
                   </a>
                 </Button>
               </div>
-              <div className="mt-6 flex flex-wrap items-center justify-center gap-2 text-xs sm:text-sm text-muted-foreground">
+              <div className="mt-6 flex flex-wrap items-center justify-center gap-2 text-xs sm:text-sm text-muted-foreground [text-shadow:_0_2px_10px_rgba(0,0,0,0.9)]">
                 <span className="inline-flex items-center gap-1">
                   <MapPin className="h-4 w-4" /> Россия · удалённо
                 </span>
