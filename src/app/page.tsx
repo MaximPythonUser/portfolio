@@ -173,18 +173,18 @@ export default function IndexPage() {
       <div className="flex min-h-screen flex-col pt-16">
         <main className="mx-auto w-full max-w-5xl flex-1 px-4 md:px-6">
           {/* Hero */}
-          <section className="relative w-full flex items-center justify-center px-4 pt-28 pb-20 md:pt-32 md:pb-24">
+          <section className="relative w-full overflow-hidden flex items-center justify-center px-4 pt-28 pb-20 md:pt-32 md:pb-24">
             {/* Metallic ring */}
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] border border-white/10 rounded-full opacity-20 pointer-events-none" />
             {/* 3D Torus - Giant background portal */}
             <img
               src="/hero-torus.png"
               alt=""
-              className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] md:w-[900px] md:h-[900px] object-contain pointer-events-none z-0 opacity-20 md:opacity-40"
+              className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] md:w-[900px] md:h-[900px] object-contain pointer-events-none z-0 opacity-30 md:opacity-40"
               style={{
                 border: 'none',
                 outline: 'none',
-                filter: 'drop-shadow(0 0 60px rgba(167, 139, 250, 0.8)) contrast(1.2) brightness(1.15)'
+                filter: 'drop-shadow(0 0 60px rgba(167, 139, 250, 0.6)) drop-shadow(0 0 120px rgba(139, 92, 246, 0.4)) contrast(1.15) brightness(1.1)'
               }}
             />
             
@@ -200,11 +200,11 @@ export default function IndexPage() {
                 Открыт для заказов и стажировки
               </Badge>
               <h1 className="mb-6 text-3xl font-bold leading-tight sm:text-4xl md:text-5xl lg:text-6xl"
-                style={{ textShadow: '0 4px 20px rgba(0, 0, 0, 0.8), 0 0 40px rgba(0, 0, 0, 0.6)' }}>
+                style={{ textShadow: '0 4px 20px rgba(0, 0, 0, 0.8), 0 0 40px rgba(0, 0, 0, 0.5)' }}>
                 Привет! Я Максим — делаю сайты и веб-приложения
               </h1>
               <p className="mb-8 text-sm text-muted-foreground sm:text-base md:text-lg"
-                style={{ textShadow: '0 2px 10px rgba(0, 0, 0, 0.9), 0 2px 10px rgba(0,0,0,0.7)' }}>
+                style={{ textShadow: '0 2px 10px rgba(0, 0, 0, 0.9)' }}>
                 Python-разработчик (1+ год): Telegram-боты, парсеры, бэкенд API.
                 PostgreSQL, Docker, FastAPI, aiogram. От архитектуры до деплоя на VPS.
               </p>
@@ -235,7 +235,7 @@ export default function IndexPage() {
 
         <Reveal>
           <section id="about" className="scroll-mt-0 py-8 md:py-12">
-          <div className="mb-6 flex items-center gap-2">
+          <div className="mb-6 flex items-center justify-center gap-2">
             <User className="h-5 w-5" />
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold">Обо мне</h2>
           </div>
@@ -285,7 +285,7 @@ export default function IndexPage() {
         {/* Skills */}
         <Reveal>
           <section id="skills" className="scroll-mt-20 py-8 md:py-12">
-            <div className="mb-8 flex items-center gap-2">
+            <div className="mb-8 flex items-center justify-center gap-2">
             <Code2 className="h-5 w-5" />
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold">Навыки</h2>
           </div>
@@ -380,16 +380,17 @@ export default function IndexPage() {
         <hr className="glow-divider my-8" />
 
         {/* Projects */}
-        <section id="projects" className="scroll-mt-20 py-8 md:py-12">
-          <div className="mb-8 flex flex-col gap-2 md:flex-row md:items-center md:justify-between md:gap-8">
-            <div className="flex items-center gap-2">
-              <FolderGit2 className="h-5 w-5" />
-              <h2 className="text-2xl font-bold">Проекты</h2>
+        <Reveal>
+          <section id="projects" className="scroll-mt-20 py-8 md:py-12">
+            <div className="mb-8 flex flex-col items-center gap-2 md:flex-row md:items-center md:justify-center md:gap-8">
+              <div className="flex items-center justify-center gap-2">
+                <FolderGit2 className="h-5 w-5" />
+                <h2 className="text-2xl font-bold">Проекты</h2>
+              </div>
+              <span className="text-sm text-muted-foreground md:text-right">
+                4 проекта · Telegram-боты, парсеры, бэкенд, Next.js
+              </span>
             </div>
-            <span className="text-sm text-muted-foreground md:text-right">
-              4 проекта · Telegram-боты, парсеры, бэкенд, Next.js
-            </span>
-          </div>
 <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
             {projects.map((p, index) => (
               <Reveal key={p.title} delay={index * 100}>
@@ -426,13 +427,14 @@ export default function IndexPage() {
             ))}
           </div>
         </section>
+        </Reveal>
 
 <hr className="glow-divider my-8" />
 
         {/* Contact */}
         <Reveal>
           <section id="contact" className="scroll-mt-20 py-12 md:py-16">
-            <div className="mb-8 flex items-center gap-2">
+            <div className="mb-8 flex items-center justify-center gap-2">
               <Send className="h-5 w-5" />
               <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold">Контакты</h2>
             </div>

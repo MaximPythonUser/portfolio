@@ -19,8 +19,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="ru" suppressHydrationWarning className={`${inter.variable} dark`}>
-      <body className="min-h-screen font-sans antialiased">
+    <html lang="ru" suppressHydrationWarning className={`${inter.variable} overflow-x-hidden dark`}>
+      <body className="min-h-screen font-sans antialiased overflow-x-hidden">
         {/* Слой 1: тематический фон — светлый или тёмный, зависит от темы */}
         <div
           className="fixed inset-0 z-0 pointer-events-none"
